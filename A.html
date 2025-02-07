@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Tecnologia Assistiva</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #e3f2fd, #90caf9);
+            font-family: Times New Roman, sans-serif;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 100px 0;
+            font-size: 16px;
+        }
+        .btn-custom {
+            background-color: #1976d2;
+            color: #fff;
+
+        }
+        .btn-custom:hover {
+            background-color: #1565c0;
+        }
+
+        .navbar-brand{
+			font-size: 1.6em;
+			color: #68ade3;
+			font-weight: bold;
+		}
+
+		.navbar{
+			background-color: #1565c0;
+			padding: 10px 20px 10px 20px;
+			position: relative;
+		}
+
+		footer .nav-link{
+			color: #1565c0;
+			font-size: 1.1rem;
+			transition: color 0.3s, background-color 0.3s;
+			font-weight: bold;
+		}
+
+		.navbar .nav-link:hover{
+			color: #68ade3;
+			border-radius: 5px;
+		}
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        .btn{
+          position: relative;
+          padding: 10px 10px;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+        }
+        b1{
+         width: 10vh;
+         Height: 10vh;
+        }
+        h1{
+         font-size: 3.5rem;
+        }
+		p{
+			font-size: 1.5rem;
+		}
+    </style>
+</head>
+<body>
+<header>
+		<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{url_for('homepage')}}">Tecnologia Assistiva</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+          <a class="nav-link" aria-current="page" href="{{url_for('cadastro')}}">Cadastro</a>
+          <a class="nav-link" aria-current="page" href="{{url_for('resultado')}}">Resultados</a>
+      </div>
+    </div>
+  </div>
+</nav>
+	</header>
+    <!-- Tela Principal -->
+    <div class="container text-center mt-5">
+        <h1 class="mb-4">Projeto de Tecnologia Assistiva</h1>
+        <p class="mb-4">No Brasil, cerca de 3,5% da população tem deficiência visual, enfrentando inúmeros desafios no dia a dia. Nosso projeto visa promover maior independência e inclusão social através de um dispositivo com sensores para evitar choques com objetos altos.</p>
+
+        <!-- Carrosel -->
+        <div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="static/img/bone.png" class="img-fluid b1" alt="boné">
+    </div>
+    <div class="carousel-item">
+      <img src="static/img/motor.png" class="img-fluid b1" alt="motor">
+    </div>
+    <div class="carousel-item">
+      <img src="static/img/sensor.png" class="img-fluid b1" alt="sensor">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Projeto de Tecnologia Assistiva. Todos os direitos reservados.</p>
+    </footer>
+
+        <script>
+        // Alternar entre as telas
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').replace('#', '');
+                document.querySelectorAll('div[id]').forEach(div => {
+                    div.style.display = div.id === targetId ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+    <div>
+        <a href="{{url_for('cadastro')}}" class="btn btn-custom">Tela Cadastro</a>
+        <a href="{{url_for('resultado')}}" class="btn btn-custom">Tela Resultado</a>
+    </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
